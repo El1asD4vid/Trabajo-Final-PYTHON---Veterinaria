@@ -34,6 +34,21 @@ def registrar_mascota():
     print("\n¡Mascota registrada correctamente!")
 
 
+def mostrar_mascotas():
+    print("\n--- Lista de mascotas ---")
+
+    try:
+        archivo = open("mascotas.txt", "r")
+
+        for linea in archivo:
+            print(linea.strip())
+
+        archivo.close()
+
+    except FileNotFoundError:
+        print("No hay mascotas registradas.")
+
+
 def main():
     opcion = -1
 
@@ -45,6 +60,9 @@ def main():
 
             if opcion == 1:
                 registrar_mascota()
+            
+            elif opcion == 4:
+                mostrar_mascotas()
 
             elif opcion == 0:
                 print("\nGracias por utilizar el sistema.")
