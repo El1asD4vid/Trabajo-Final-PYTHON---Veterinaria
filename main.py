@@ -83,6 +83,24 @@ def mostrar_turnos():
         print("No hay turnos registrados.")
 
 
+def registrar_atencion():
+    print("\n--- Registrar atención médica ---")
+
+    id_mascota = input("Ingrese el ID de la mascota: ")
+    tipo_atencion = input("Ingrese el tipo de atención: ")
+    observaciones = input("Ingrese las observaciones: ")
+
+    archivo = open("atenciones.txt", "a")
+
+    archivo.write(id_mascota + ";" +
+                  tipo_atencion + ";" +
+                  observaciones + "\n")
+
+    archivo.close()
+
+    print("\n¡Atención médica registrada correctamente!")
+
+
 def main():
     opcion = -1
 
@@ -97,6 +115,9 @@ def main():
             
             elif opcion == 2:
                 registrar_turno()
+            
+            elif opcion == 3:
+                registrar_atencion()
             
             elif opcion == 4:
                 mostrar_mascotas()
