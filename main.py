@@ -68,6 +68,20 @@ def registrar_turno():
 
     print("\n¡Turno registrado correctamente!")
 
+def mostrar_turnos():
+    print("\n--- Lista de turnos ---")
+
+    try:
+        archivo = open("turnos.txt", "r")
+
+        for linea in archivo:
+            print(linea.strip())
+
+        archivo.close()
+
+    except FileNotFoundError:
+        print("No hay turnos registrados.")
+
 
 def main():
     opcion = -1
@@ -86,6 +100,9 @@ def main():
             
             elif opcion == 4:
                 mostrar_mascotas()
+            
+            elif opcion == 5:
+                mostrar_turnos()
 
             elif opcion == 0:
                 print("\nGracias por utilizar el sistema.")
