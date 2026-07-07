@@ -12,6 +12,28 @@ def mostrar_menu():
     print("====================================")
 
 
+def registrar_mascota():
+    print("\n--- Registrar mascota ---")
+
+    id_mascota = input("Ingrese el ID de la mascota: ")
+    nombre = input("Ingrese el nombre de la mascota: ")
+    especie = input("Ingrese la especie: ")
+    edad = input("Ingrese la edad: ")
+    duenio = input("Ingrese el nombre del dueño: ")
+
+    archivo = open("mascotas.txt", "a")
+
+    archivo.write(id_mascota + ";" +
+                  nombre + ";" +
+                  especie + ";" +
+                  edad + ";" +
+                  duenio + "\n")
+
+    archivo.close()
+
+    print("\n¡Mascota registrada correctamente!")
+
+
 def main():
     opcion = -1
 
@@ -21,8 +43,12 @@ def main():
         try:
             opcion = int(input("Seleccione una opción: "))
 
-            if opcion == 0:
+            if opcion == 1:
+                registrar_mascota()
+
+            elif opcion == 0:
                 print("\nGracias por utilizar el sistema.")
+
             else:
                 print("\nFuncionalidad en desarrollo...")
 
