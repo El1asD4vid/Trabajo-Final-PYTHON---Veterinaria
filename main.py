@@ -101,6 +101,53 @@ def registrar_atencion():
     print("\n¡Atención médica registrada correctamente!")
 
 
+def estadisticas():
+    print("\n========== ESTADÍSTICAS ==========\n")
+
+    # CONTADOR DE MASCOTAS
+    cantidad_mascotas = 0
+    try:
+        archivo = open("mascotas.txt", "r")
+
+        for linea in archivo:
+            cantidad_mascotas += 1
+
+        archivo.close()
+
+    except FileNotFoundError:
+        cantidad_mascotas = 0
+
+    # CONTADOR DE TURNOS
+    cantidad_turnos = 0
+    try:
+        archivo = open("turnos.txt", "r")
+
+        for linea in archivo:
+            cantidad_turnos += 1
+
+        archivo.close()
+
+    except FileNotFoundError:
+        cantidad_turnos = 0
+
+    # CONTADOR DE ATENCIONES
+    cantidad_atenciones = 0
+    try:
+        archivo = open("atenciones.txt", "r")
+
+        for linea in archivo:
+            cantidad_atenciones += 1
+
+        archivo.close()
+
+    except FileNotFoundError:
+        cantidad_atenciones = 0
+
+    print("Cantidad de mascotas registradas:", cantidad_mascotas)
+    print("Cantidad de turnos registrados:", cantidad_turnos)
+    print("Cantidad de atenciones realizadas:", cantidad_atenciones)
+
+
 def main():
     opcion = -1
 
@@ -125,11 +172,14 @@ def main():
             elif opcion == 5:
                 mostrar_turnos()
 
+            elif opcion == 6:
+                estadisticas()
+
             elif opcion == 0:
                 print("\nGracias por utilizar el sistema.")
 
             else:
-                print("\nFuncionalidad en desarrollo...")
+                print("\nOpción invalida.")
 
         except ValueError:
             print("\nDebe ingresar un número.")
