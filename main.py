@@ -1,3 +1,14 @@
+import os
+
+# --- INICIO DE LA CONFIGURACIÓN DE RUTAS ---
+# Detecta la carpeta donde se encuentra este archivo de Python
+ruta_del_script = os.path.dirname(os.path.abspath(__file__))
+
+# Establece esa carpeta como directorio de trabajo
+os.chdir(ruta_del_script)
+# --- FIN DE LA CONFIGURACIÓN ---
+
+
 def mostrar_menu():
     print("\n====================================")
     print("   VETERINARIA 'PATAS Y BIGOTES'")
