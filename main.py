@@ -49,6 +49,26 @@ def mostrar_mascotas():
         print("No hay mascotas registradas.")
 
 
+def registrar_turno():
+    print("\n--- Registrar turno ---")
+
+    id_mascota = input("Ingrese el ID de la mascota: ")
+    fecha = input("Ingrese la fecha (dd/mm/aaaa): ")
+    hora = input("Ingrese la hora: ")
+    motivo = input("Ingrese el motivo de la consulta: ")
+
+    archivo = open("turnos.txt", "a")
+
+    archivo.write(id_mascota + ";" +
+                  fecha + ";" +
+                  hora + ";" +
+                  motivo + "\n")
+
+    archivo.close()
+
+    print("\n¡Turno registrado correctamente!")
+
+
 def main():
     opcion = -1
 
@@ -60,6 +80,9 @@ def main():
 
             if opcion == 1:
                 registrar_mascota()
+            
+            elif opcion == 2:
+                registrar_turno()
             
             elif opcion == 4:
                 mostrar_mascotas()
