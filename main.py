@@ -18,7 +18,8 @@ def mostrar_menu():
     print("3. Registrar atención médica")
     print("4. Mostrar mascotas")
     print("5. Mostrar turnos")
-    print("6. Estadísticas")
+    print("6. Mostrar atenciones")
+    print("7. Estadísticas")
     print("0. Salir")
     print("====================================")
 
@@ -58,6 +59,17 @@ def mostrar_mascotas():
 
     except FileNotFoundError:
         print("No hay mascotas registradas.")
+
+
+def mostrar_atenciones():
+    print("\n--- Lista de atenciones médicas ---")
+    try:
+        archivo = open("atenciones.txt", "r")
+        for linea in archivo:
+            print(linea.strip())
+        archivo.close()
+    except FileNotFoundError:
+        print("No hay atenciones médicas registradas.")
 
 
 def registrar_turno():
@@ -184,6 +196,9 @@ def main():
                 mostrar_turnos()
 
             elif opcion == 6:
+                mostrar_atenciones()
+
+            elif opcion == 7:
                 estadisticas()
 
             elif opcion == 0:
